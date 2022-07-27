@@ -31,13 +31,13 @@ db = SQL("sqlite:///project.db")
 # debugging switches
 
 # input txt or paste
-debug1 = True
+debug1 = False
 
 # display unjoined list
-debug2 = True
+debug2 = False
 
 # display joined list
-debug3 = True
+debug3 = False
 
 # displya unique SQL title query
 debug4 = False
@@ -46,7 +46,7 @@ debug4 = False
 debug5 = False
 
 # fixing txt input
-debug6 = True
+debug6 = False
 
 
 def login_required(f):
@@ -749,4 +749,5 @@ def credit():
     return send_file("credits.txt", as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = os.environ.get("PORT", 5000) # Heroku will set the PORT environment variable for web traffic
+    app.run(debug=False, host="0.0.0.0", port=port)
