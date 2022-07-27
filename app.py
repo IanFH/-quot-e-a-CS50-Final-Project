@@ -654,7 +654,8 @@ def format():
             path = "./static/temporarytxt/compiled_highlights_" + str(user_id) + ".txt"
 
             # remove previous path
-            os.remove(path)
+            if os.path.exists(path):
+                os.remove(path)
 
             # write string into text file
             text_file = open(path, 'w')
