@@ -128,7 +128,8 @@ def register():
 
         # if emtpy
         if not username:
-            return render_template("register.html", message="Input Username")
+            flash("Username Filed Empty", 'flash_error')
+            return render_template("register.html")
 
         # if username taken
         username_check_dict = db.execute("SELECT username from users")
@@ -137,17 +138,20 @@ def register():
             username_check.append(items["username"])
         
         if username in username_check:
-            return render_template("register.html", message="Username Taken")
+            flash("Username Taken", 'flash_error')
+            return render_template("register.html")
 
         # if empty password
         password = request.form.get("password")
         if not password:
-            return render_template("register.html", message="Input Password")
+            flash("Password Field Empty", 'flash_error')
+            return render_template("register.html")
 
         # check if passwords are the same
         confirmation = request.form.get("confirmation")
         if password != confirmation:
-            return render_template("register.html", message="Password Does Not Match")
+            flash("Passwrod Does Not Match", 'flash_error')
+            return render_template("register.html")
 
         # if password match, hash password
         hash = generate_password_hash(password, method='pbkdf2:sha256', salt_length=16)
