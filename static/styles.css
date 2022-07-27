@@ -1,0 +1,68 @@
+.custom_beach_background {
+    background-image: url("images/kindle_beach.jpg");
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.custom_full_opacity {
+    opacity: 1;
+}
+
+.custom_large_text {
+    font-size: 70px;
+}
+
+.custom_navbar_fixed {
+    position: sticky;
+    top: 0;
+    opacity: 0.9;
+}
+
+
+
+/*put in div*/
+.custom_large_icon {
+    font-size: 50px;
+}
+
+
+/* bg color themes */
+.bg_theme_blue {
+    background-color: #41d2d8;
+}
+
+.bg_theme_dark {
+    background-color: #555B6E
+}
+
+.bg_theme_sand {
+    background-color: #FFE7D6;
+}
+
+.bg_theme_cream {
+    background-color: #FFF3EB;
+}
+
+.bg_theme_paper {
+    background-color: #F9FBFF;
+}
+
+
+/* text color themes */
+.text_theme_dark {
+    color: #555B6E;
+}
+
+.text_theme_red {
+    color: #B80C09;
+}
+
+/* flash message */
+.flash_error {
+    background-color: #FED766 ;
+}
+
+.flash_success {
+    background-color: #CEF7A0;
+}

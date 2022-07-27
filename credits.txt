@@ -1,0 +1,5 @@
+kindle_flower:https://unsplash.com/photos/RMgQQntEkWM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+kindle_beach: https://unsplash.com/photos/0SYJS6nfR10?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+thinking_cartoon: <a href='https://www.freepik.com/vectors/imagination'>Imagination vector created by storyset - www.freepik.com</a>
+key_cartoon: <a href="https://storyset.com/user">User illustrations by Storyset</a>
+book_glasses_cartoon: <a href="https://storyset.com/home">Home illustrations by Storyset</a>

@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Clean
+{% endblock %}
+
+{% block main %}
+<section class="bg_theme_paper">
+    <div class="container p-5">
+        <div class="text-center">
+            <h1>Format of Text</h1>
+            <h4 class="mt-3 fw-light">Ensure your .txt files or text you input is in this format</h4>
+        </div>
+
+        <div class="mt-5 card col-lg-8 offset-lg-2">
+            <div class="card-body">
+                <p>
+                    Name of Book (Author)
+                    <br>
+                    - Your Highlight on page XXX | location XXX-XXX | Added on Day, XX Month XXXX XX:XX:XX
+                    <br>
+                    <br>
+                    (Text You Highlighted) Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quam, in similique
+                    <br>
+                    ==========
+                    <br>
+                    Name of Book (Author)
+                    <br>
+                    - Your Highlight on page XXX | location XXX-XXX | Added on Day, XX Month XXXX XX:XX:XX
+                    <br>
+                    <br>
+                    (Text You Highlighted) Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quam, in similique
+                    <br>
+                    ==========
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section class="bg_theme_paper">
+    <div class="container p-5 pt-0 pt-md-5">
+        <div class="text-center mb-5">
+            <h1>Input Text</h1>
+        </div>
+        <div class="row justify-content-center g-4">
+            <button class="col-md-4 col-lg-2 btn btn-primary btn-lg" type="button" data-bs-toggle="collapse" data-bs-target=".multi2-collapse" aria-expanded="false" aria-controls="fileinput_collapse filebutton_collapse" style="background-color:#41d2d8; border-color:#41d2d8;">
+                <h1><i class="bi bi-upload me-3"></i><span class="h5">Upload txt</span></h1>               
+            </button>
+            <div class="col-md-2 col-lg-1 text-center d-flex align-items-center justify-content-center">
+                <span>OR</span>
+            </div>      
+            <button class="col-md-4 col-lg-2 btn btn-secondary btn-lg" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="textarea_collapse button_collapse" style="background-color:#B80C09; border-color:#B80C09;">
+                <h1><i class="bi bi-clipboard-check me-3"></i><span class="h5">Paste Text</span></h1>
+            </button>
+        </div>
+        <div class="mt-5 row justify-content-center">
+            <div class="col-md-8">
+                <form action="/clean" method="post" enctype="multipart/form-data">
+                    <div id="fileinput_collapse" class="multi2-collapse collapse">
+                        <input class="form-control form-control-lg" type="file" name="textfile" accept=".txt">
+                    </div>
+                    <div class="collapse multi2-collapse" id="filebutton_collapse">
+                        <div class="d-flex mt-3 justify-content-center">
+                            <button class="btn btn-primary">Clean</button>
+                        </div>                        
+                    </div>
+                </form>
+                
+                <form action="/clean" method="post" class="mt-3">
+                    <div class="form-floating collapse multi-collapse" id="textarea_collapse">                                   
+                        <textarea class="form-control" placeholder="Paste text here" id="PasteTextArea" style="height: 300px" name="hl-text"></textarea>
+                        <label for="PasteTextArea">Paste text here</label>
+                    </div>
+                    <div class="collapse multi-collapse" id="button_collapse">
+                        <div class="mt-3 d-flex justify-content-center">
+                            <button class="btn btn-primary" type="submit">Clean</button>
+                        </div>
+                    </div>  
+                </form>                   
+            </div>
+        </div>        
+    </div>
+</section>
+{% endblock %}

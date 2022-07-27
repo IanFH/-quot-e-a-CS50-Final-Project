@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+<section>
+    <form action="/format" method="POST">
+        <div class="container p-5 bg_theme_paper">
+            <div class="text-center mb-5"><h1>Format Your Highlights</h1></div>
+            <table class="table">
+                <thead class="bg_theme_blue">
+                    <tr class="text-center">
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Highlight</th>
+                        <th scope="col-4">All<input type="checkbox" class="form-check-input" onClick="toggle(this)"/></th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for highlight in table %}
+                    <tr>
+                        <th scope="row">{{ highlight["highlight_counter"] }}</th>
+                        <td>{{ highlight["title"] }}</td>
+                        <td>{{ highlight["highlights"] }}</td>
+                        <td>
+                            <div class="form-check">
+                                <input name="checkboxes" class="form-check-input" type="checkbox" value="{{ highlight['highlight_id']}}" id="flexCheckDefault">
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="mt-5 text-center">
+                <h2 class="fw-light">Select the checkboxes above before clicking the buttons below</h2>
+            </div>
+            <div class="container p-5 d-flex align-items-center justify-content-center">
+                <button class="btn btn-danger" type="submit" name="format" value="delete-selected">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                    Delete
+                </button>
+                <h4 class="mx-3 fw-light">or</h4>
+                <button class="btn btn-primary" type="submit" name="format" value="compile-selected">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                        <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                    </svg>
+                    Compile
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="bg-white">
+        <div class="container p-5">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <img class="w-50 img-fluid d-none d-sm-block" src="/static/images/Reading glasses-bro.svg" alt="stack of books">
+                <div>
+                    <h2 class="fw-light">If everything is clean, then you can</h2>
+                    <h1 style="font-size: 65px">Compile By Title</h1>
+                    <form action="/format" method="POST">
+                        <select class="form-select mt-4" name="titles" id="titles">
+                            <option disabled selected>Select Title</option>
+                            {% for title in titles %}
+                                <option value="{{ title['title'] }}">{{ title['title'] }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="my-3">
+                            <input name="title_check" type="checkbox" class="form-check-input me-2" value="title">Title
+                            <input name="author_check" type="checkbox" class="form-check-input mx-2" value="author">Author
+                            <input name="details_check" type="checkbox" class="form-check-input mx-2" value="details">Details
+                        </div>
+                        <button class="btn btn-primary" type="submit" name="format" value="compile-by-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                                <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                            </svg>
+                            Compile
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<script>
+function toggle(source) {
+  checkboxes = document.getElementsByName('checkboxes');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
+{% endblock %}

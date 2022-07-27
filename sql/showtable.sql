@@ -1,0 +1,1 @@
+SELECT * FROM user_highlights_3 ORDER BY highlight_counter DESC;

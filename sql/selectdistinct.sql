@@ -1,0 +1,1 @@
+SELECT * FROM user_highlights_3 GROUP BY title;

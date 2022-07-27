@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<section class="d-md-flex align-items-center custom_beach_background">
+    <div class="container">
+        <div class="col-md-8 mx-auto text-center">
+            <h1 class="custom_large_text text-white mt-sm-3">Read, <span class="fw-bold"><u class="text_theme">Remember</u></span>, Reflect</h1>
+            <h2 class="text-white my-4 fw-light">
+                Highlights your favourite quotes in your e-book reader and remember more, with <span class="fw-semibold">quote-E</span>
+            </h2>
+            <a class="btn btn-primary btn-lg" href="/clean">Try Now!</a>
+        </div>
+    </div>
+</section>
+
+<section class="bg_theme_paper p-5">
+    <div class="container">
+        <div class="d-md-flex align-items-center justify-content-between">
+            <div class="col-md-5">
+                <img class="w-100" src="static/images/thinking_cartoon.svg" alt="Thinking Person">
+            </div>
+            <div class="col-md-7">
+                <h1>
+                    Do you have <span class="text_theme_red">trouble remembering</span> what you read?
+                </h1>
+                <h4 class="fw-light my-3">
+                    quot-E is an online web app that <u class="fw-semibold">cleans</u>, <u class="fw-semibold">reformats</u> and overall <u class="fw-semibold">improves the readability and aesthetic</u> of E-Book readers' txt file. This allows for easy revisiting of thought provoking ideas and concepts
+                </h4>
+                <a href="/clean" class="btn btn-primary">Try Now!</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_theme_paper p-5">
+    <div class="container">
+        <h1 class="text-center mb-4">Our Features</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+            <div class="col">
+                <div class="card p-5">
+                    <div class="custom_large_icon">
+                        <i class="bi bi-eraser"></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Easy Clean
+                        </h2>
+                        <p class="card-text my-3">
+                            Upload txt files or paste your highlighted kindle text for easy separations of data
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card p-5">
+                    <div class="custom_large_icon">
+                        <i class="bi bi-blockquote-left"></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Highlights Selector
+                        </h2>
+                        <p class="card-text my-3">
+                            Using the checkboxes, select highlighted texts which you want to delete or compile
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card p-5">
+                    <div class="custom_large_icon">
+                        <i class="bi bi-file-earmark-arrow-down"></i>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Custom Download
+                        </h2>
+                        <p class="card-text my-3">
+                            Select among title, author, details, and highlighted text which you want to download into txt
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

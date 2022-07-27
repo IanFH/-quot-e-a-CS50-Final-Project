@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+<section class="bg_theme_paper" style="height: 90ch">
+    <container class="m-5 align-items-center justify-content-center">
+        <div class="my-4 text-center">
+            <h1>Register</h1>
+        </div>
+        <form action="/register" method="POST">
+            <div>
+                <!--Username input-->
+                <input class="form-control mx-auto w-auto" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="my-3">
+                <!--Password input-->
+                <input class="form-control mx-auto w-auto" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="my-3">
+                <!--Cofirm Password input-->
+                <input class="form-control mx-auto w-auto" type="password" name="confirmation" placeholder="Confirm Password">
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            
+        </form>
+    </container>
+</section>
+{% endblock %}
