@@ -128,7 +128,7 @@ def register():
 
         # if emtpy
         if not username:
-            flash("Username Filed Empty", 'flash_error')
+            flash("Username Field Empty", 'flash_error')
             return render_template("register.html")
 
         # if username taken
@@ -252,6 +252,10 @@ def clean():
                 if switch == 1 and letter == ')':
                     if debug6:
                         print("reached end of 1")
+
+                    if '\ufeff' in highlight:
+                        highlight.remove('\ufeff')
+
                     author = author[1:]
                     switch = 2
                 if switch == 1:
@@ -261,6 +265,10 @@ def clean():
                 if details_end_counter == 2:
                     if debug6:
                         print("reached end of 2")
+
+                    if '\ufeff' in highlight:
+                        highlight.remove('\ufeff')
+
                     # reset counters
                     colon_counter = 0
                     details_end_counter = 0
@@ -279,6 +287,10 @@ def clean():
                 if equals_counter == 10:                
                     if debug6:
                         print("reached end of 3")
+                    
+                    if '\ufeff' in highlight:
+                        highlight.remove('\ufeff')
+
                     equals_counter = 0
                     highlight = highlight[4:(len(highlight)-2)]
                     switch = 4
